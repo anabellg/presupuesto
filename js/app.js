@@ -8,9 +8,10 @@ let agregarDato=()=>{
     let valor=parseInt(document.getElementById('Valor').value);
     let descripcion=(document.getElementById('descripcion').value);
     let tipo=document.getElementById('tipo').value;
+    let sumaingresos = parseInt(Ingreso_acumulado);
     let contid =('limpiar_Estilo' + x);
     let conteg =('limpiar_Egreso' + y);
-    console.log(tipo);
+    console.log(sumaingresos);
 
     if(tipo=="Ingreso"){
 
@@ -24,7 +25,7 @@ let agregarDato=()=>{
                             <p> + ${valor}</p>
                         </div>
                         <div class="elemento_eliminar">
-                             <button type="button" class="btn-danger elemento_eliminar--btn" onclick="eliminarIngreso(${contid})">
+                             <button type="button" class="btn-danger elemento_eliminar--btn" onclick="eliminarIngreso(${contid},${valor},${sumaingresos})">
                                 Eliminar
                              </button>
                         </div>
@@ -35,7 +36,7 @@ let agregarDato=()=>{
         let nuevocontenedor=document.getElementById('ingreso_padre');
         nuevocontenedor.insertAdjacentElement('beforeend',newboxent);
         Ingreso_acumulado=Ingreso_acumulado+valor;
-        document.getElementById('ingresos').innerHTML=`<p> + ${Ingreso_acumulado}</p>`;
+        document.getElementById('ingresos').innerHTML=`<p> ${Ingreso_acumulado}</p>`;
          x++; 
     }
     else if(tipo=="Egreso"){
